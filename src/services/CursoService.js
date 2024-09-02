@@ -17,11 +17,10 @@ module.exports = {
     },
 
     //Método para cadastrar um curso
-    createCursos: (nome) => {
+    createCurso: (nome) => {
         return new Promise((resolve, reject) => {
-            database.query(`INSERT INTO curso VALUES (null, ${nome}, null)`, (err, result) => {
-                if(err){,reject(err
-                    
+            database.query(`INSERT INTO curso VALUES (null, "${nome}", null)`, (err, result) => {
+                if(err){                    
                     reject(err)
                     return
                 }
