@@ -40,7 +40,10 @@ module.exports = {
   saveAluno: async (request, response) => {
     json = { error: "", result: "" };
 
-    let foto = request.file.buffer;
+    let foto = null
+    if(request.file){
+     foto = request.file.buffer; 
+    }    
     let nome = request.body.nome;
     let email = request.body.email;
     let telefone = request.body.telefone;
@@ -72,13 +75,17 @@ module.exports = {
     }
   },
 
+
   //Método para atualizar um aluno
+   
   updateAluno: async (request, response) => {
     json = { error: "", result: "" }
 
     let id = request.params.id;
-
-    let foto = request.file.buffer;
+    let foto = null
+    if(!request.file.buffer == null){
+      foto = request.file.buffer;
+    }   
     let nome = request.body.nome;
     let email = request.body.email;
     let telefone = request.body.telefone;
